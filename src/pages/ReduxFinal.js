@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import productOne from "../images/product1.gif";
 import productTwo from "../images/product2.gif";

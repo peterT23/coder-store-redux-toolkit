@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import productOne from "../images/product1.gif";
 import productTwo from "../images/product2.gif";
 import ReactJson from "react-json-view";
 
 const RootComponent = (props) => {
+  // eslint-disable-next-line
   const [products, setProducts] = useState([
     { id: "p1", title: "Product 1", price: 1999 },
     { id: "p2", title: "Product 2", price: 999 },

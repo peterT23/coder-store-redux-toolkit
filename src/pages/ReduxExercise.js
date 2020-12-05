@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import productOne from "../images/product1.gif";
 import productTwo from "../images/product2.gif";
 import ReactJson from "react-json-view";
-import { useSelector, useDispatch } from "react-redux";
-import cartActions from "../redux/actions/cart.actions";
+import { useDispatch } from "react-redux";
 
 const RootComponent = (props) => {
   return (
@@ -93,6 +92,7 @@ const ProductOne = (props) => {
   // Create a function to handle click event of the button Add
   // In the function, dispatch cartActions.addProduct(product) to trigger the action add product to the cart
   // Make the function handle onClick event of the button
+  // eslint-disable-next-line
   const dispatch = useDispatch();
 
   // Step 8

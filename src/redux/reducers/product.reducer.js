@@ -4,6 +4,7 @@ const initialState = [
 ];
 
 const productReducer = (state = initialState, action) => {
+  // eslint-disable-next-line
   const { type, payload } = action;
 
   switch (type) {
