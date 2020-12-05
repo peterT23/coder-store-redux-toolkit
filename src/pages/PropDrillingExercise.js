@@ -40,7 +40,14 @@ const RootComponent = (props) => {
         {`})`}
       </h4>
       <p className="text-left">
-        <ReactJson src={{ products, cart }} collapsed={true} theme="monokai" />
+        <ReactJson
+          name="state"
+          src={{ products, cart }}
+          collapsed={true}
+          theme="monokai"
+          displayDataTypes={false}
+          displayObjectSize={false}
+        />
       </p>
       <Container fluid>
         <Row>

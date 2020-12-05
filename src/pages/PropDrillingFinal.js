@@ -21,7 +21,7 @@ const RootComponent = (props) => {
     const newProductList = cart.products.map((cartProduct) => {
       if (cartProduct.id === newProduct.id) {
         cartProduct.qty += 1;
-        cartProduct.price = cartProduct.qty * newProduct.price;
+        cartProduct.price += newProduct.price;
       }
       return cartProduct;
     });
@@ -30,17 +30,15 @@ const RootComponent = (props) => {
   };
 
   const removeProductFromCart = (removedProduct) => {
+    let newTotalPrice = cart.totalPrice;
     const newProductList = cart.products.map((cartProduct) => {
-      if (cartProduct.id === removedProduct.id) {
-        cartProduct.qty = cartProduct.qty - 1 > 0 ? cartProduct.qty - 1 : 0;
-        cartProduct.price = cartProduct.qty * removedProduct.price;
+      if (cartProduct.id === removedProduct.id && cartProduct.qty > 0) {
+        cartProduct.qty -= 1;
+        cartProduct.price -= removedProduct.price;
+        newTotalPrice -= removedProduct.price;
       }
       return cartProduct;
     });
-    const newTotalPrice =
-      cart.totalPrice - removedProduct.price > 0
-        ? cart.totalPrice - removedProduct.price
-        : 0;
     setCart({ products: newProductList, totalPrice: newTotalPrice });
   };
 
@@ -52,7 +50,14 @@ const RootComponent = (props) => {
         {`})`}
       </h4>
       <p className="text-left">
-        <ReactJson src={{ products, cart }} collapsed={true} theme="monokai" />
+        <ReactJson
+          name="state"
+          src={{ products, cart }}
+          collapsed={true}
+          theme="monokai"
+          displayDataTypes={false}
+          displayObjectSize={false}
+        />
       </p>
       <Container fluid>
         <Row>
