@@ -1,52 +1,51 @@
 import React from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import productOne from "../images/product1.gif";
 import productTwo from "../images/product2.gif";
 import ReactJson from "react-json-view";
 import { useSelector, useDispatch } from "react-redux";
 import cartActions from "../redux/actions/cart.actions";
+import WrapperBox from "../components/WrapperBox";
+import { Container, Button, Typography, Box, Grid } from "@mui/material"
+
 
 const RootComponent = (props) => {
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         RootComponent {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <Row>
-          <Col>
-            <ProductPage />
-          </Col>
-          <Col>
-            <CartPage />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+      </Typography>
+      <Grid container spacing={2} p="1rem">
+        <Grid item md={6}>
+          <ProductPage />
+        </Grid>
+        <Grid item md={6}>
+          <CartPage />
+        </Grid>
+      </Grid>
+    </WrapperBox>
   );
 };
 
 const ProductPage = (props) => {
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         Product Page {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <Row>
-          <Col>
-            <ProductOne />
-          </Col>
-          <Col>
-            <ProductTwo />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+      </Typography>
+      <Grid container spacing={2} p="1rem">
+        <Grid item md={6}>
+          <ProductOne />
+        </Grid>
+        <Grid item md={6}>
+          <ProductTwo />
+        </Grid>
+      </Grid>
+    </WrapperBox>
   );
 };
 
@@ -57,29 +56,24 @@ const CartPage = (props) => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         Cart Page {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <Row>
-          <Col>
-            <CartProductOne />
-          </Col>
-          <Col>
-            <CartProductTwo />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <br />
-            <h4>Total Price: 💵 {totalPrice}</h4>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+      </Typography>
+      <Grid container spacing={2} p="1rem">
+        <Grid item md={6}>
+          <CartProductOne />
+        </Grid>
+        <Grid item md={6}>
+          <CartProductTwo />
+        </Grid>
+        <Grid item md={12}>
+          <Typography p="0.5rem" variant="h5">Total Price: 💵 {totalPrice}</Typography>
+        </Grid>
+      </Grid>
+    </WrapperBox>
   );
 };
 
@@ -110,43 +104,39 @@ const ProductOne = (props) => {
   };
 
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         {product.title} {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <Row>
-          <Col>
-            <img src={productOne} alt="Product One" width="100%" />
-            <h5 className="text-success">💵 {product.price}</h5>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
+      </Typography >
+      <Grid container justifyContent="center">
+        <Grid item xs={8}>
+          <img src={productOne} alt="Product One" width="100%" />
+          <Typography p="0.5rem" variant="h6" sx={{ color: "success.main" }}>💵 {product.price}</Typography>
+        </Grid>
+        <Grid item xs={8} >
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               variant="success"
-              size="sm"
-              style={{ width: "5rem" }}
+              sx={{ width: "5rem" }}
               onClick={addProduct}
             >
               Add
             </Button>
-          </Col>
-          <Col>
             <Button
-              variant="danger"
-              size="sm"
-              style={{ width: "5rem" }}
+              variant="error"
+              sx={{ width: "5rem" }}
               onClick={removeProduct}
             >
               Remove
             </Button>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+          </div>
+        </Grid>
+      </Grid>
+    </WrapperBox >
+
+
   );
 };
 
@@ -170,43 +160,36 @@ const ProductTwo = (props) => {
   };
 
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         {product.title} {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <Row>
-          <Col>
-            <img src={productTwo} alt="Product Two" width="100%" />
-            <h5 className="text-success">💵 {product.price}</h5>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
+      </Typography>
+      <Grid container justifyContent="center">
+        <Grid item xs={8}>
+          <img src={productTwo} alt="Product Two" width="100%" />
+          <Typography p="0.5rem" variant="h5" sx={{ color: "success.main" }}>💵 {product.price}</Typography>
+        </Grid>
+        <Grid item xs={8} >
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button
               variant="success"
-              size="sm"
-              style={{ width: "5rem" }}
-              onClick={addProduct}
-            >
+              sx={{ width: "5rem" }}
+              onClick={addProduct}>
               Add
             </Button>
-          </Col>
-          <Col>
             <Button
-              variant="danger"
-              size="sm"
-              style={{ width: "5rem" }}
+              variant="error"
+              sx={{ width: "5rem" }}
               onClick={removeProduct}
             >
               Remove
             </Button>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+          </div>
+        </Grid>
+      </Grid>
+    </WrapperBox>
   );
 };
 
@@ -218,17 +201,19 @@ const CartProductOne = (props) => {
   const product = useSelector((state) => state.cart.products[0]);
 
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         CartProduct 1 {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }} >{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
+      </Typography>
       <Container fluid>
-        <h4>Quantity: {product.qty}</h4>
-        <h4>Price: 💵 {product.price}</h4>
+        <Box >
+          <Typography p="0.5rem" variant="h6">Quantity: {product.qty}</Typography>
+          <Typography p="0.5rem" variant="h6">Price: 💵 {product.price}</Typography>
+        </Box>
       </Container>
-    </div>
+    </WrapperBox>
   );
 };
 
@@ -240,17 +225,17 @@ const CartProductTwo = (props) => {
   const product = useSelector((state) => state.cart.products[1]);
 
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         CartProduct 2 {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <h4>Quantity: {product.qty}</h4>
-        <h4>Price: 💵 {product.price}</h4>
-      </Container>
-    </div>
+      </Typography >
+      <Box>
+        <Typography p="0.5rem" variant="h6">Quantity: {product.qty}</Typography>
+        <Typography p="0.5rem" variant="h6">Price: 💵 {product.price}</Typography>
+      </Box>
+    </WrapperBox>
   );
 };
 
@@ -261,9 +246,11 @@ const Store = (props) => {
   const products = useSelector((state) => state.product);
   const cart = useSelector((state) => state.cart);
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">Store</h4>
-      <p className="text-left">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
+        Store
+      </Typography>
+      <Box sx={{ textAlign: "start" }}>
         <ReactJson
           name="store"
           src={{ products, cart }}
@@ -271,25 +258,26 @@ const Store = (props) => {
           displayDataTypes={false}
           displayObjectSize={false}
         />
-      </p>
-    </div>
+      </Box>
+    </WrapperBox>
   );
 };
 
+
 const ReduxFinal = () => {
   return (
-    <Container fluid>
+    <Container maxWidth="xxl">
       <br />
       <h5>How to add products to the cart using Redux?</h5>
       <br />
-      <Row>
-        <Col md={3}>
+      <Grid container spacing={2}>
+        <Grid item md={3}>
           <Store />
-        </Col>
-        <Col md={9}>
+        </Grid>
+        <Grid item md={9}>
           <RootComponent />
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     </Container>
   );
 };

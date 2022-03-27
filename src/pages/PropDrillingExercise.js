@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Container, Button, Typography, Box, Grid } from "@mui/material"
 import productOne from "../images/product1.gif";
 import productTwo from "../images/product2.gif";
 import ReactJson from "react-json-view";
+import WrapperBox from "../components/WrapperBox"
+
+
 
 const RootComponent = (props) => {
   // eslint-disable-next-line
@@ -35,13 +38,13 @@ const RootComponent = (props) => {
   // Pass the functions to the product components to handle the click event of the Add/Remove buttons
 
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         RootComponent {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <p className="text-left">
+      </Typography>
+      <Box sx={{ textAlign: "start" }}>
         <ReactJson
           name="state"
           src={{ products, cart }}
@@ -50,164 +53,149 @@ const RootComponent = (props) => {
           displayDataTypes={false}
           displayObjectSize={false}
         />
-      </p>
-      <Container fluid>
-        <Row>
-          <Col>
-            <ProductPage products={products} />
-          </Col>
-          <Col>
-            <CartPage cart={cart} />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+      </Box>
+      <Grid container spacing={2} p="1rem">
+        <Grid item md={6}>
+          <ProductPage products={products} />
+        </Grid>
+        <Grid item md={6}>
+          <CartPage cart={cart} />
+        </Grid>
+      </Grid>
+    </WrapperBox>
   );
 };
 
 const ProductPage = (props) => {
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
+
         Product Page {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <Row>
-          <Col>
-            <ProductOne product={props.products[0]} />
-          </Col>
-          <Col>
-            <ProductTwo product={props.products[1]} />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+      </Typography>
+      <Grid container spacing={2} p="1rem">
+        <Grid item md={6}>
+          <ProductOne product={props.products[0]} />
+        </Grid>
+        <Grid item md={6}>
+          <ProductTwo product={props.products[1]} />
+        </Grid>
+      </Grid>
+    </WrapperBox>
   );
 };
 
 const CartPage = (props) => {
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         Cart Page {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <Row>
-          <Col>
-            <CartProductOne product={props.cart.products[0]} />
-          </Col>
-          <Col>
-            <CartProductTwo product={props.cart.products[1]} />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <br />
-            <h4>Total Price: 💵 {props.cart.totalPrice}</h4>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+      </Typography>
+      <Grid container spacing={2} p="1rem">
+        <Grid item md={6}>
+          <CartProductOne product={props.cart.products[0]} />
+        </Grid>
+        <Grid item md={6}>
+          <CartProductTwo product={props.cart.products[1]} />
+        </Grid>
+        <Grid item md={12}>
+          <Typography p="0.5rem" variant="h5">Total Price: 💵 {props.cart.totalPrice}</Typography>
+        </Grid>
+      </Grid>
+    </WrapperBox>
   );
 };
 
 const ProductOne = (props) => {
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         {props.product.title} {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <Row>
-          <Col>
-            <img src={productOne} alt="Product One" width="100%" />
-            <h5 className="text-success">💵 {props.product.price}</h5>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Button variant="success" size="sm" style={{ width: "5rem" }}>
+      </Typography >
+      <Grid container justifyContent="center">
+        <Grid item xs={8}>
+          <img src={productOne} alt="Product One" width="100%" />
+          <Typography p="0.5rem" variant="h6" sx={{ color: "success.main" }}>💵 {props.product.price}</Typography>
+        </Grid>
+        <Grid item xs={8} >
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Button variant="success" sx={{ width: "5rem" }} >
               Add
             </Button>
-          </Col>
-          <Col>
-            <Button variant="danger" size="sm" style={{ width: "5rem" }}>
+            <Button variant="error" sx={{ width: "5rem" }}>
               Remove
             </Button>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+          </div>
+        </Grid>
+      </Grid>
+    </WrapperBox>
   );
 };
 
 const ProductTwo = (props) => {
+
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         {props.product.title} {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <Row>
-          <Col>
-            <img src={productTwo} alt="Product Two" width="100%" />
-            <h5 className="text-success">💵 {props.product.price}</h5>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
+      </Typography>
+      <Grid container justifyContent="center">
+        <Grid item xs={8}>
+          <img src={productTwo} alt="Product Two" width="100%" />
+          <Typography p="0.5rem" variant="h5" sx={{ color: "success.main" }}>💵 {props.product.price}</Typography>
+        </Grid>
+        <Grid item xs={8} >
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Button variant="success" size="sm" style={{ width: "5rem" }}>
               Add
             </Button>
-          </Col>
-          <Col>
-            <Button variant="danger" size="sm" style={{ width: "5rem" }}>
+            <Button variant="error" size="sm" style={{ width: "5rem" }}>
               Remove
             </Button>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+          </div>
+        </Grid>
+      </Grid>
+    </WrapperBox>
   );
 };
 
 const CartProductOne = (props) => {
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         CartProduct 1 {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }} >{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <h4>Quantity: {props.product.qty}</h4>
-        <h4>Price: 💵 {props.product.price}</h4>
-      </Container>
-    </div>
+      </Typography>
+      <Box >
+        <Typography p="0.5rem" variant="h6">Quantity: {props.product.qty}</Typography>
+        <Typography p="0.5rem" variant="h6">Price: 💵 {props.product.price}</Typography>
+      </Box>
+    </WrapperBox>
   );
 };
 
 const CartProductTwo = (props) => {
   return (
-    <div className="box text-center">
-      <h4 className="box-title p-2">
+    <WrapperBox>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
         CartProduct 2 {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
-      </h4>
-      <Container fluid>
-        <h4>Quantity: {props.product.qty}</h4>
-        <h4>Price: 💵 {props.product.price}</h4>
-      </Container>
-    </div>
+      </Typography >
+      <Box>
+        <Typography p="0.5rem" variant="h6">Quantity: {props.product.qty}</Typography>
+        <Typography p="0.5rem" variant="h6">Price: 💵 {props.product.price}</Typography>
+      </Box>
+    </WrapperBox>
   );
 };
 
@@ -215,7 +203,7 @@ const PropDrillingExercise = () => {
   return (
     <Container>
       <br />
-      <h5>How to add products to the cart?</h5>
+      <Typography p="0.5rem" variant="h6">How to add products to the cart?</Typography>
       <br />
       <RootComponent />
     </Container>
