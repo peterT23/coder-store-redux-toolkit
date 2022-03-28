@@ -15,10 +15,10 @@ const RootComponent = (props) => {
         {`})`}
       </Typography>
       <Grid container spacing={2} p="1rem">
-        <Grid item md={6}>
+        <Grid item sm={6} xs={12}>
           <ProductPage />
         </Grid>
-        <Grid item md={6}>
+        <Grid item sm={6} xs={12}>
           <CartPage />
         </Grid>
       </Grid>
@@ -35,10 +35,10 @@ const ProductPage = (props) => {
         {`})`}
       </Typography>
       <Grid container spacing={2} p="1rem">
-        <Grid item md={6}>
+        <Grid item md={6} xs={12}>
           <ProductOne />
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={6} sx={12}>
           <ProductTwo />
         </Grid>
       </Grid>
@@ -59,13 +59,13 @@ const CartPage = (props) => {
         {`})`}
       </Typography>
       <Grid container spacing={2} p="1rem">
-        <Grid item md={6}>
+        <Grid item md={6} sx={12}>
           <CartProductOne />
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={6} sx={12}>
           <CartProductTwo />
         </Grid>
-        <Grid item md={12}>
+        <Grid item sx={12}>
           <Typography p="0.5rem" variant="h5">Total Price: 💵 {totalPrice}</Typography>
         </Grid>
       </Grid>
@@ -105,7 +105,7 @@ const ProductOne = (props) => {
           <Typography p="0.5rem" variant="h6" sx={{ color: "success.main" }}>💵 {product.price}</Typography>
         </Grid>
         <Grid item xs={8} >
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
             <Button variant="success" sx={{ width: "5rem" }}>
               Add
             </Button>
@@ -141,7 +141,7 @@ const ProductTwo = (props) => {
           <Typography p="0.5rem" variant="h5" sx={{ color: "success.main" }}>💵 {product.price}</Typography>
         </Grid>
         <Grid item xs={8} >
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
             <Button variant="success" sx={{ width: "5rem" }}>
               Add
             </Button>
@@ -229,10 +229,10 @@ const ReduxExercise = () => {
       <h5>How to add products to the cart using Redux?</h5>
       <br />
       <Grid container spacing={2}>
-        <Grid item md={3}>
+        <Grid item md={3} xs={12}>
           <Store />
         </Grid>
-        <Grid item md={9}>
+        <Grid item md={9} xs={12}>
           <RootComponent />
         </Grid>
       </Grid>

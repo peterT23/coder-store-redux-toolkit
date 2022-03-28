@@ -18,10 +18,10 @@ const RootComponent = (props) => {
         {`})`}
       </Typography>
       <Grid container spacing={2} p="1rem">
-        <Grid item md={6}>
+        <Grid item sm={6} xs={12}>
           <ProductPage />
         </Grid>
-        <Grid item md={6}>
+        <Grid item sm={6} xs={12}>
           <CartPage />
         </Grid>
       </Grid>
@@ -38,10 +38,10 @@ const ProductPage = (props) => {
         {`})`}
       </Typography>
       <Grid container spacing={2} p="1rem">
-        <Grid item md={6}>
+        <Grid item md={6} xs={12}>
           <ProductOne />
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={6} sx={12}>
           <ProductTwo />
         </Grid>
       </Grid>
@@ -115,8 +115,8 @@ const ProductOne = (props) => {
           <img src={productOne} alt="Product One" width="100%" />
           <Typography p="0.5rem" variant="h6" sx={{ color: "success.main" }}>💵 {product.price}</Typography>
         </Grid>
-        <Grid item xs={8} >
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Grid item xs={10} >
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
             <Button
               variant="success"
               sx={{ width: "5rem" }}
@@ -171,8 +171,8 @@ const ProductTwo = (props) => {
           <img src={productTwo} alt="Product Two" width="100%" />
           <Typography p="0.5rem" variant="h5" sx={{ color: "success.main" }}>💵 {product.price}</Typography>
         </Grid>
-        <Grid item xs={8} >
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Grid item xs={10} >
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
             <Button
               variant="success"
               sx={{ width: "5rem" }}
@@ -271,10 +271,10 @@ const ReduxFinal = () => {
       <h5>How to add products to the cart using Redux?</h5>
       <br />
       <Grid container spacing={2}>
-        <Grid item md={3}>
+        <Grid item md={3} xs={12}>
           <Store />
         </Grid>
-        <Grid item md={9}>
+        <Grid item md={9} xs={12}>
           <RootComponent />
         </Grid>
       </Grid>

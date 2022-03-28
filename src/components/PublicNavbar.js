@@ -21,94 +21,79 @@ const pages = [{ name: 'Props Drilling', path: '/' }, { name: 'Props Drilling Fi
 
 const PublicNavbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
   return (
-    <>
-      <AppBar position="static" sx={{ backgroundColor: "background.paper" }}>
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <img src={logo} alt="CoderSchool" width="200px" />
-            </Box>
-
-
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page.path} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page.name}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-            <Box
-              sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+    <AppBar position="static" sx={{ backgroundColor: "background.paper" }}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <img src={logo} alt="CoderSchool" width="200px" />
+          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
             >
-              <img src={logo} alt="CoderSchool" width="200px" />
-            </Box>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
               {pages.map((page) => (
-
-                <Button
+                <MenuItem
                   key={page.path}
                   onClick={handleCloseNavMenu}
                   component={NavLink} to={`${page.path}`}
-                  variant="main"
-                // sx={{ my: 2, color: "text.primary", display: 'block' }}
                 >
-                  {page.name}
-                </Button>
-
+                  <Typography textAlign="center">{page.name}</Typography>
+                </MenuItem>
               ))}
-            </Box>
-
-
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </>
+            </Menu>
+          </Box>
+          <Box
+            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+          >
+            <img src={logo} alt="CoderSchool" width="200px" />
+          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: "center" }}>
+            {pages.map((page) => (
+              <Button
+                key={page.path}
+                onClick={handleCloseNavMenu}
+                component={NavLink} to={`${page.path}`}
+                variant="main"
+                sx={{ marginTop: "auto", marginBottom: "auto", marginLeft: "1rem" }}
+              >
+                {page.name}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 };
 

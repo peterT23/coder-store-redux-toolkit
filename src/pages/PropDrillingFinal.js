@@ -63,7 +63,7 @@ const RootComponent = (props) => {
         />
       </Box>
       <Grid container spacing={2} p="1rem">
-        <Grid item md={6}>
+        <Grid item sm={6}>
 
           <ProductPage
             products={products}
@@ -71,7 +71,7 @@ const RootComponent = (props) => {
             removeProduct={removeProductFromCart}
           />
         </Grid>
-        <Grid item md={6}>
+        <Grid item sm={6}>
 
           <CartPage cart={cart} />
         </Grid>
@@ -157,7 +157,7 @@ const ProductOne = (props) => {
               Add
             </Button>
             <Button
-              variant="danger"
+              variant="error"
               size="sm"
               style={{ width: "5rem" }}
               onClick={() => props.removeProduct(props.product)}
@@ -196,7 +196,7 @@ const ProductTwo = (props) => {
               Add
             </Button>
             <Button
-              variant="danger"
+              variant="error"
               size="sm"
               style={{ width: "5rem" }}
               onClick={() => props.removeProduct(props.product)}

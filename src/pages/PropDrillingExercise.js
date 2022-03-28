@@ -76,10 +76,10 @@ const ProductPage = (props) => {
         {`})`}
       </Typography>
       <Grid container spacing={2} p="1rem">
-        <Grid item md={6}>
+        <Grid item sm={6}>
           <ProductOne product={props.products[0]} />
         </Grid>
-        <Grid item md={6}>
+        <Grid item sm={6}>
           <ProductTwo product={props.products[1]} />
         </Grid>
       </Grid>
