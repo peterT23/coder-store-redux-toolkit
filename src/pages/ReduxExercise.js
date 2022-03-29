@@ -9,7 +9,7 @@ import WrapperBox from "../components/WrapperBox";
 const RootComponent = (props) => {
   return (
     <WrapperBox>
-      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "primary.main", color: "primary.contrastText" }}>
         RootComponent {`({`}
         <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
@@ -29,7 +29,7 @@ const RootComponent = (props) => {
 const ProductPage = (props) => {
   return (
     <WrapperBox>
-      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "primary.main", color: "primary.contrastText" }}>
         Product Page {`({`}
         <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
@@ -53,7 +53,7 @@ const CartPage = (props) => {
 
   return (
     <WrapperBox>
-      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "primary.main", color: "primary.contrastText" }}>
         Cart Page {`({`}
         <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
@@ -94,7 +94,7 @@ const ProductOne = (props) => {
 
   return (
     <WrapperBox>
-      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "primary.main", color: "primary.contrastText" }}>
         {product.title} {`({`}
         <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
@@ -130,7 +130,7 @@ const ProductTwo = (props) => {
 
   return (
     <WrapperBox>
-      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "primary.main", color: "primary.contrastText" }}>
         {product.title} {`({`}
         <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
@@ -163,7 +163,7 @@ const CartProductOne = (props) => {
 
   return (
     <WrapperBox>
-      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "primary.main", color: "primary.contrastText" }}>
         CartProduct 1 {`({`}
         <Box component="span" sx={{ color: "warning.main" }} >{Object.keys(props).join(", ")}</Box>
         {`})`}
@@ -186,7 +186,7 @@ const CartProductTwo = (props) => {
 
   return (
     <WrapperBox>
-      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "primary.main", color: "primary.contrastText" }}>
         CartProduct 2 {`({`}
         <Box component="span" sx={{ color: "warning.main" }}>{Object.keys(props).join(", ")}</Box>
         {`})`}
@@ -206,7 +206,7 @@ const Store = (props) => {
 
   return (
     <WrapperBox>
-      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "background.primary", color: "background.contrastText" }}>
+      <Typography p="0.5rem" variant="h5" sx={{ backgroundColor: "primary.main", color: "primary.contrastText" }}>
         Store
       </Typography>
       <Box sx={{ textAlign: "start" }}>
