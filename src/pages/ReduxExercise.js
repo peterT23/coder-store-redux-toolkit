@@ -38,7 +38,7 @@ const ProductPage = (props) => {
         <Grid item md={6} xs={12}>
           <ProductOne />
         </Grid>
-        <Grid item md={6} sx={12}>
+        <Grid item md={6} xs={12}>
           <ProductTwo />
         </Grid>
       </Grid>
@@ -59,13 +59,13 @@ const CartPage = (props) => {
         {`})`}
       </Typography>
       <Grid container spacing={2} p="1rem">
-        <Grid item md={6} sx={12}>
+        <Grid item md={6} xs={12}>
           <CartProductOne />
         </Grid>
-        <Grid item md={6} sx={12}>
+        <Grid item md={6} xs={12}>
           <CartProductTwo />
         </Grid>
-        <Grid item sx={12}>
+        <Grid item xs={12}>
           <Typography p="0.5rem" variant="h5">Total Price: 💵 {totalPrice}</Typography>
         </Grid>
       </Grid>
@@ -77,7 +77,7 @@ const ProductOne = (props) => {
   // Step 4
   // Replace the line below to get data of the first product from state.product
   // You should see the price is updated
-  const product = { title: "...", price: "...", qty: "..." };
+  const product = { id: "...", title: "...", price: "..." };
 
   // Step 7
   // Define: const dispatch = useDispatch();
@@ -123,7 +123,7 @@ const ProductTwo = (props) => {
   // Step 5
   // Replace the line below to get data of the second product from state.product
   // You should see the price is updated
-  const product = { title: "...", price: "...", qty: "..." };
+  const product = { id: "...", title: "...", price: "..." };
 
   // Step 9
   // Repeat step 7 and 8 for this component
@@ -158,7 +158,7 @@ const ProductTwo = (props) => {
 const CartProductOne = (props) => {
   // Step 2
   // Replace the line below to get data of the first product from state.cart.products
-  // Change the price of products in `cart.reducer.js` to see the effect
+  // Change the price of products in `service/cart/slice.js` to see the effect
   const product = { price: "...", qty: "..." };
 
   return (
@@ -168,7 +168,7 @@ const CartProductOne = (props) => {
         <Box component="span" sx={{ color: "warning.main" }} >{Object.keys(props).join(", ")}</Box>
         {`})`}
       </Typography>
-      <Container fluid>
+      <Container fluid="true">
         <Box >
           <Typography p="0.5rem" variant="h6">Quantity: {product.qty}</Typography>
           <Typography p="0.5rem" variant="h6">Price: 💵 {product.price}</Typography>
@@ -181,7 +181,7 @@ const CartProductOne = (props) => {
 const CartProductTwo = (props) => {
   // Step 3
   // Replace the line below to get data of the second product from state.cart.products
-  // Change the price of products in `cart.reducer.js` to see the effect
+  // Change the price of products in `service/cart/slice.js` to see the effect
   const product = { price: "...", qty: "..." };
 
   return (
@@ -202,7 +202,7 @@ const CartProductTwo = (props) => {
 const Store = (props) => {
   // Step 1
   // use useSelector() to get the data of products and cart in the store
-  // pass {products, cart} to the src attribute of the component <ReactJson/>
+  // pass {cart, product} to the src attribute of the component <ReactJson/>
 
   return (
     <WrapperBox>
